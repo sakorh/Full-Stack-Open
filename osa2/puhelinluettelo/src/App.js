@@ -20,7 +20,6 @@ const Notification = ({ success, error }) => {
       </div>
     )
   }
-
 }
 
 const App = () => {
@@ -68,7 +67,7 @@ const App = () => {
             setNewName('')
             setNewNumber('')
             setSuccessMessage(
-              `Updated ${returnedPerson.name}'s number'`
+              `Updated ${returnedPerson.name}'s number`
               )
               setTimeout(() => {
                 setSuccessMessage(null)
@@ -103,6 +102,12 @@ const App = () => {
             setTimeout(() => {
               setSuccessMessage(null)
             }, 5000)
+        })
+        .catch(error => {
+          setErrorMessage(error.response.data.error)
+          setTimeout(() => {
+            setErrorMessage(null)
+          }, 5000)
         })
     }
   }
